@@ -1,0 +1,8 @@
+.img-center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+    max-height: 400px;
+  }
+  

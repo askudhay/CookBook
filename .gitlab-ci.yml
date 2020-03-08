@@ -1,0 +1,29 @@
+stages:
+  - build_angular
+  - deploy
+
+cache:
+    paths:
+    - ./node_modules
+  
+generate_artifact:
+ image: node:12-alpine
+ stage: build_angular
+ script:
+  - npm install -g @angular/cli --silent
+  - npm install --silent
+  - ng build --prod --base-href /cookbook/ --output-hashing none
+ artifacts:
+  paths:
+    - dist/
+
+pages:
+ stage: deploy
+ script:
+  - mv dist/cookbook/ public
+  - cp public/index.html public/404.html
+ artifacts:
+  paths:
+   - public
+ only:
+  - master

@@ -1,0 +1,64 @@
+<header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" [routerLink]="''">NG - Cook Book</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarCollapse"
+      aria-controls="navbarCollapse"
+      aria-label="Toggle navigation"
+      [attr.aria-expanded]="!isCollapsed"
+      (click)="toggleMenu()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse"
+      id="navbarCollapse"
+      [ngbCollapse]="isCollapsed"
+    >
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="''"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item dropdown" ngbDropdown>
+          <a
+            class="nav-link dropdown-toggle"
+            [routerLink]=""
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            ngbDropdownToggle
+          >
+            Cuisine
+          </a>
+          <div
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+            ngbDropdownMenu
+          >
+            <a class="dropdown-item" routerLink="cuisine/American">American</a>
+            <a class="dropdown-item" routerLink="cuisine/Chinese">Chinese</a>
+            <a class="dropdown-item" routerLink="cuisine/Indian">Indian</a>
+            <a class="dropdown-item" routerLink="cuisine/Mexican">Mexican</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main role="main" class="flex-shrink-0">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+<div style="min-height: 50px;"></div>

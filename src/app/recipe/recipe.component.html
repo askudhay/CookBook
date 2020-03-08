@@ -1,0 +1,17 @@
+<div style="min-height: 25px;"></div>
+<div class="container">
+  <div class="row" *ngFor="let row of details; index as i">
+    <div class="col-sm">
+      <p class="d-flex justify-content-center" style="font-size: 45px;">
+        {{ row.strMeal }}
+      </p>
+      <p>
+        <img src="{{ row.strMealThumb }}" class="img-fluid img-center-block" />
+      </p>
+      <strong>Follow these steps:</strong>
+      <p style="min-height: 45px;">{{ row.strInstructions }}</p>
+      <strong>Watch on: </strong>
+      <a href="{{ row.strYoutube }}" target="_blank">YouTube</a>
+    </div>
+  </div>
+</div>
